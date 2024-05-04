@@ -10,4 +10,13 @@ const saveProduct = async (name, description, quantity) => {
     }
 }
 
-module.exports = {saveProduct}
+const findProductsRepository = async () => {
+    try {
+        const products = await Product.find({})
+        return products
+    } catch (err) {
+        throw err
+    }
+}
+
+module.exports = {saveProduct,findProductsRepository}
