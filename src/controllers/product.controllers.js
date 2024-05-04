@@ -10,8 +10,17 @@ const saveProductController = async (req, res) => {
     } catch (err) {
         res.status(400).send(err)
     }
-    
-
 }    
 
-module.exports = {saveProductController}
+const findProductsController = (req, res) => {
+    try {
+        productServices.findProductsService()
+            .then((products) => res.status(200).send(products))
+            .catch(err => res.status(400).send(err))
+        
+    } catch (err) {
+
+    }
+}
+
+module.exports = {saveProductController,findProductsController}
