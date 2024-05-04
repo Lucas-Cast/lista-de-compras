@@ -1,6 +1,6 @@
 const Product = require('../models/Product')
 
-const saveProduct = async (name, description, quantity) => {
+const saveProductRepository = async (name, description, quantity) => {
     try {
         const product = new Product({name, description, quantity})
         await product.save()
@@ -19,4 +19,4 @@ const findProductsRepository = async () => {
     }
 }
 
-module.exports = {saveProduct,findProductsRepository}
+module.exports = {saveProductRepository,findProductsRepository}
