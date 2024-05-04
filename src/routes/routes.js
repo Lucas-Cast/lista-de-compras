@@ -1,9 +1,8 @@
 const express = require('express')
+const productController = require('../controllers/product.controllers')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.send("Route testing")
-})
+router.post('/saveProduct', productController.saveProductController)
 
 module.exports = router
