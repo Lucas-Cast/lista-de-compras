@@ -7,8 +7,8 @@ const router = require('./routes/routes')
 const port = 3000
 const app = express()
 
-app.use(router)
 app.use(express.json())
+app.use(router)
 
 dbConnect()
     .then(() => app.listen(port))
