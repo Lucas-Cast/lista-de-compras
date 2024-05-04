@@ -19,4 +19,12 @@ const findProductsRepository = async () => {
     }
 }
 
-module.exports = {saveProductRepository,findProductsRepository}
+const deleteProductRepository = async (id) => {
+    try {
+        await Product.findByIdAndDelete(id)
+    } catch (err) {
+        throw `Error: ${err.name} \n Message: ${err.message}`
+    }
+}
+
+module.exports = {saveProductRepository,findProductsRepository, deleteProductRepository}
