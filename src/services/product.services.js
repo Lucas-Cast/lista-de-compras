@@ -13,4 +13,14 @@ const saveProductService = async (body) => {
     }
 }
 
-module.exports = {saveProductService}
+const findProductsService = async () => {
+    try {
+        const products = await productRepository.findProductsRepository()
+        if (products.length == 0) throw 'No producst have been registered'
+        return products
+    } catch (err) {
+        throw err
+    }
+}
+
+module.exports = {saveProductService, findProductsService}
