@@ -27,4 +27,14 @@ const deleteProductRepository = async (id) => {
     }
 }
 
-module.exports = {saveProductRepository,findProductsRepository, deleteProductRepository}
+const findProductById = async (id) => {
+    try {
+        const product = await Product.findById(id)
+        return product
+        
+    } catch (err) {
+        throw `Error: ${err.name} \n Message: ${err.message}`
+    }
+}
+
+module.exports = {saveProductRepository,findProductsRepository, deleteProductRepository, findProductById}
