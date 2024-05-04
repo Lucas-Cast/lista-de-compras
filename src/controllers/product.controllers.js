@@ -14,13 +14,12 @@ const saveProductController = async (req, res) => {
 
 const findProductsController = (req, res) => {
     try {
-        throw 'teste'
         productServices.findProductsService()
             .then((products) => res.status(200).send(products))
             .catch(err => res.status(400).send(err))
-                    
+        
     } catch (err) {
-        res.status(400).send(err)
+
     }
 }
 
