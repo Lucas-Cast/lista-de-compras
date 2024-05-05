@@ -6,7 +6,7 @@ const saveProductService = async (body) => {
         if (!name) throw "You must set a name"
         if (typeof(quantity) != typeof(1)) throw "Quantity must be a number"
 
-        await productRepository.saveProduct(name, description, quantity)
+        await productRepository.saveProductRepository(name, description, quantity)
 
     } catch (err) {
         throw `Error : ${err}`
