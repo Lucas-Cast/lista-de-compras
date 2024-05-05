@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compras</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+   <div class="h2Div"><h2>Monte sua lista</h2></div>
+   <div class="inputsDiv">
+    <span> <input type="text" class='sendProductTextBox' name="sendProductTextBox"  require placeholder="Nome do produto..."></span>
+    <span> <input type="text" class='sendProductTextBox' name="sendProductDescriptionTextBox" placeholder="Descrição..."></span>
+    <span> <input type="number" class='sendProductTextBox' name="sendProductQuantityTextBox" placeholder="Quantidade..." min=0></span>
+
+    <span> <button name="sendProductBtn" onclick="sendProduct()" class='sendProductBtn' id="sendProductBtn">Adicionar</button></span>
+    </div>
+    <div id="productsDiv" class="productsDiv">
+        
+        <table id="productsTable" class="productsTable">
+            <tr class="product">
+                <th>Produto</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Deletar</th>
+            </tr>
+            
+        </table>
+    </div>
+    
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="./js/displayProducts.js"></script>
+<script src="./js/deleteProduct.js"></script>
+<script src="./js/addProduct.js"></script>
+</html>
