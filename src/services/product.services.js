@@ -23,4 +23,19 @@ const findProductsService = async () => {
     }
 }
 
-module.exports = {saveProductService, findProductsService}
+const deleteProductService = async (query) => {
+    try {
+        const id = query.id
+        if (!id) throw 'The id is empty'
+
+        const product = await productRepository.findProductById(id)
+        if (!product) throw 'No products found'
+
+        await productRepository.deleteProductRepository(id)
+    
+    } catch (err) {
+        throw err
+    }
+}
+
+module.exports = {saveProductService, findProductsService, deleteProductService}
