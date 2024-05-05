@@ -23,4 +23,16 @@ const findProductsController = (req, res) => {
     }
 }
 
-module.exports = {saveProductController,findProductsController}
+const deleteProductController = async (req,res) => {
+    try{
+        const {query} = await req
+        productServices.deleteProductService(query)
+            .then(() => res.status(200).send("Product successfully deleted"))
+            .catch(err => res.status(400).send(err))
+
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
+module.exports = {saveProductController,findProductsController, deleteProductController}
