@@ -1,0 +1,103 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Lista de compras API",
+        "description":"API criada para gerenciar lista de compras, podendo adicionar, listar ou deletar produtos.",
+        "contact": {
+            "email": "lucascastelano27@gmail.com"
+        },
+        "version":"1.0.0"
+    },
+    "paths": {
+        "/saveProduct": {
+            "post": {
+                "summary": "Salvar produto",
+                "description": "Somente o nome é obrigatório, se algum outro parâmetro não for definido, será usado um valor padrão",
+                "tags": ["Product"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            },
+                            "examples": {
+                                "product":{
+                                    "value": {
+                                        "name": "Arroz",
+                                        "description": "branco",
+                                        "quantity": 4
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description":"Error"
+                    },
+                    "200": {
+                        "description" : "Product successfully saved"
+                    }
+                }
+            }
+        }, 
+        "/findProducts":{
+            "get": {
+                "summary":"Lista os produtos do banco de dados",
+                "description": "Busca produtos existentes no banco de dados",
+                "tags": ["Product"],
+                "responses": {
+                    "200":{
+                        "description":"OK"
+                    },
+                    "400":{
+                        "description":"Error"
+                    }
+                }
+            }
+        },
+        "/deleteProduct?id={id}":{
+            "delete": {
+                "summary":"Deletar produto",
+                "description": "Deleta produto com base no ID passado",
+                "tags": ["Product"],
+                "parameters": [
+                    {
+                    "name":"id",
+                    "in":"path",
+                    "description":"Id do produto",
+                    "required":true
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description":"Product successfully deleted"
+                    },
+                    "400":{
+                        "description":"Error"
+                    }
+                    
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "type":"object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    }
+}
