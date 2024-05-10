@@ -32,4 +32,3 @@ Por fim, a aplicação também pode ser acessada online no seguinte link:
 ```bash 
 https://listadecompras-one.vercel.app/
 ```
->>>>>>> develop
