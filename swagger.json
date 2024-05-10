@@ -12,7 +12,7 @@
         "/saveProduct": {
             "post": {
                 "summary": "Salvar produto",
-                "description": "Somente o nome é obrigatório, se algum outro parâmetro não for definido, será usado um valor padrão",
+                "description": "Apresentará erro se o nome não for definido ou quantity não for string, caso quantity ou description não sejam definidos, será usado um valor padrão",
                 "tags": ["Product"],
                 "requestBody": {
                     "content": {
@@ -45,7 +45,7 @@
         "/findProducts":{
             "get": {
                 "summary":"Lista os produtos do banco de dados",
-                "description": "Busca produtos existentes no banco de dados",
+                "description": "Retorna um erro caso não haja produtos salvos",
                 "tags": ["Product"],
                 "responses": {
                     "200":{
@@ -60,7 +60,7 @@
         "/deleteProduct?id={id}":{
             "delete": {
                 "summary":"Deletar produto",
-                "description": "Deleta produto com base no ID passado",
+                "description": "Apresentará erro caso um id errado seja passado",
                 "tags": ["Product"],
                 "parameters": [
                     {
